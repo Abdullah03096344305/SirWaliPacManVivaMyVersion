@@ -143,7 +143,7 @@ namespace PacMan.GameGL
                 img = PacManGUI.Properties.Resources.pallet;
             }
             if (displayCharacter == 'P' || displayCharacter == 'p') {
-                img = PacManGUI.Properties.Resources.pacman_open;
+                img = PacManGUI.Properties.Resources.PlayerSpaceship;
             }
 
             return img;
