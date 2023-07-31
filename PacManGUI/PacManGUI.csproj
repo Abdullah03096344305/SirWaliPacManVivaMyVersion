@@ -67,11 +67,41 @@
     <Compile Include="GameGrid.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameObjectType.cs" />
+    <Compile Include="GameOverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameOverForm.Designer.cs">
+      <DependentUpon>GameOverForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GamePacmanPlayer.cs" />
+    <Compile Include="Level2Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Level2Form.Designer.cs">
+      <DependentUpon>Level2Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YouWinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YouWinForm.Designer.cs">
+      <DependentUpon>YouWinForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameOverForm.resx">
+      <DependentUpon>GameOverForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Level2Form.resx">
+      <DependentUpon>Level2Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -83,6 +113,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YouWinForm.resx">
+      <DependentUpon>YouWinForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -128,7 +164,61 @@
     <None Include="Resources\simplebox.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\simpleZombieRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tileCold.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tileCombo.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaperflare.com_wallpaper %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaperflare.com_wallpaper %284%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZombieUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GhostEnemy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IceEnemy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayerSonicYellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayerSpaceship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedAngryEnemy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FireEnemy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BrownBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaperflare.com_wallpaper %283%291.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaperflare.com_wallpaper %284%291.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaperflare.com_wallpaper %285%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaperflare.com_wallpaper %281%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

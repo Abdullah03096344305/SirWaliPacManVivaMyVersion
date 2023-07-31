@@ -13,16 +13,36 @@ namespace PacMan.GameGL
         GameGrid grid;
         public List<GameGhost> ghosts;
         int score = 0;
+        int health = 5;
+        int starPoints = 0;
+        int finalstarPoints;
         Form gameGUI;
         public Game(Form gameGUI)
         {
-            this.gameGUI = gameGUI;
-            grid = new GameGrid("maze.txt", 24, 70);
-            Image pacManImage = Game.getGameObjectImage('P');
-            ghosts = new List<GameGhost>();
-            GameCell startCell = grid.getCell(7, 9);
-            pacman = new GamePacManPlayer(pacManImage, startCell);
-            printMaze(grid);
+            finalstarPoints = getStarPoints();
+            if(finalstarPoints == 0)
+            {
+                this.gameGUI = gameGUI;
+                grid = new GameGrid("maze.txt", 17, 38);
+                Image pacManImage = Game.getGameObjectImage('P');
+                ghosts = new List<GameGhost>();
+                GameCell startCell = grid.getCell(7, 9);
+                pacman = new GamePacManPlayer(pacManImage, startCell);
+                printMaze(grid);
+            }
+            if(finalstarPoints == 3)
+            {
+                setStarPoints(0);
+                this.gameGUI = gameGUI;
+                grid = new GameGrid("maze2.txt", 17, 38);
+                Image pacManImage = Game.getGameObjectImage('P');
+                ghosts = new List<GameGhost>();
+                GameCell startCell = grid.getCell(7, 9);
+                pacman = new GamePacManPlayer(pacManImage, startCell);
+                printMaze(grid);               
+            }
+            
+           
 
         }
         public GameCell getCell(int x, int y) {
@@ -34,11 +54,32 @@ namespace PacMan.GameGL
         public GamePacManPlayer getPacManPlayer() {
             return pacman;
         }
+        public void decreaseHealthpoints(int points)
+        {
+            this.health = health + points;
+        }
         public void addScorePoints(int points) {
             this.score = score + points;
         }
+
+        public void addStarPoints(int points)
+        {
+            this.starPoints = starPoints + points;
+        }
         public int getScore() {
             return score;
+        }
+        public int getStarPoints()
+        {
+            return starPoints;
+        }
+        public void setStarPoints(int starPoints)
+        {
+            this.starPoints = starPoints;
+        }
+        public int getHealth()
+        {
+            return health;
         }
         void printMaze(GameGrid grid)
         {
@@ -60,21 +101,21 @@ namespace PacMan.GameGL
             return blankGameObject;
         }
         public Image getBlueGhostImage() {
-                return PacManGUI.Properties.Resources.ghost_blue;
+                return PacManGUI.Properties.Resources.ZombieUp;
         }
 
         public Image getRedGhostImage()
         {
-            return PacManGUI.Properties.Resources.ghost_red;
+            return PacManGUI.Properties.Resources.RedAngryEnemy;
         }
 
         public Image getPinkGhostImage()
         {
-            return PacManGUI.Properties.Resources.ghost_pink;
+            return PacManGUI.Properties.Resources.FireEnemy;
         }
         public Image getOrangeGhostImage()
         {
-            return PacManGUI.Properties.Resources.ghost_orange;
+            return PacManGUI.Properties.Resources.GhostEnemy;
         }
 
         public static Image getGameObjectImage(char displayCharacter)
@@ -85,12 +126,16 @@ namespace PacMan.GameGL
 
             if (displayCharacter == '|' || displayCharacter == '%')
             {
-                img = PacManGUI.Properties.Resources.vertical;
+                img = PacManGUI.Properties.Resources.BrownBlock;
             }
 
             if (displayCharacter == '#')
             {
-                img = PacManGUI.Properties.Resources.horizontal;
+                img = PacManGUI.Properties.Resources.BrownBlock;
+            }
+            if (displayCharacter == ',')
+            {
+                img = PacManGUI.Properties.Resources.download_removebg_preview;
             }
 
             if (displayCharacter == '.')

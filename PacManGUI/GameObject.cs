@@ -30,6 +30,10 @@ namespace PacMan.GameGL
                 return GameObjectType.WALL;
             }
 
+            if (displayCharacter == ',')
+            {
+                return GameObjectType.STAR;
+            }
             if (displayCharacter == '.') 
             {
                 return GameObjectType.REWARD;

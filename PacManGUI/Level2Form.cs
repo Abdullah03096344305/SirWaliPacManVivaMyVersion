@@ -12,21 +12,21 @@ using System.Windows.Forms;
 
 namespace PacManGUI
 {
-    public partial class Form1 : Form
+    public partial class Level2Form : Form
     {
         Game game;
         GameCollisionDetector collider;
         int StarPoints = 0;
         int playerhealth = 0;
         int playerScore = 0;
-        public Form1()
+        public Level2Form()
         {
             InitializeComponent();
             game = new Game(this);
             collider = new GameCollisionDetector();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Level2Form_Load(object sender, EventArgs e)
         {
             GameGhostVertical gv1 = new GameGhostVertical(game.getBlueGhostImage(), game.getCell(3, 6));
             GameGhostVertical gv3 = new GameGhostVertical(game.getBlueGhostImage(), game.getCell(7, 10));
@@ -37,7 +37,6 @@ namespace PacManGUI
             game.addGhost(gv2);
             game.addGhost(gv3);
             game.addGhost(gv4);
-           
         }
 
         private void gameLoop_Tick(object sender, EventArgs e)
@@ -45,7 +44,7 @@ namespace PacManGUI
             movePacMan();
             moveGhosts();
             showScore();
-           
+            NewGameScenario();
         }
         public void moveGhosts()
         {
@@ -55,7 +54,7 @@ namespace PacManGUI
                 {
                     game.decreaseHealthpoints(-1);
                 }
-               
+
                 g.move(g.nextCell());
 
 
@@ -67,7 +66,7 @@ namespace PacManGUI
             lblScoreValue.Text = game.getScore().ToString();
             labelHealthValue.Text = game.getHealth().ToString();
             labelStarValue.Text = game.getStarPoints().ToString();
-           
+
         }
         private void NewGameScenario()
         {
@@ -76,11 +75,8 @@ namespace PacManGUI
             playerScore = game.getScore();
             if (StarPoints == 3)
             {
-                    game.setStarPoints(0);
-                    Level2Form level2 = new Level2Form();
-                    this.Hide();
-                    level2.Show();
-              
+                Form form2 = new YouWinForm();
+                form2.Show();
             }
             else if (playerhealth == 0)
             {
@@ -122,7 +118,6 @@ namespace PacManGUI
             {
                 game.addStarPoints(1);
             }
-            NewGameScenario();
             pacman.move(potentialNewCell);
         }
     }

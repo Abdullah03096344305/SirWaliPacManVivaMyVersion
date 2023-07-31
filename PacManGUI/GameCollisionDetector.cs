@@ -32,6 +32,21 @@ namespace PacManGUI
             {
                 flag = true;
             }
+            if (potentialCell.CurrentGameObject.GameObjectType == GameObjectType.STAR)
+            {
+                flag = true;
+            }
+            return flag;
+
+        }
+        public bool isPacManCollideWithStar(GameCell potentialCell)
+        {
+            bool flag = false;
+            //Write your Code Here           
+            if (potentialCell.CurrentGameObject.GameObjectType == GameObjectType.STAR)
+            {
+                flag = true;
+            }
             return flag;
 
         }

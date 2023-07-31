@@ -12,6 +12,7 @@ namespace PacMan.GameGL
         PLAYER,
         ENEMY,
         REWARD,
+        STAR,
         NONE
     }
 }

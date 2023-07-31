@@ -10,8 +10,8 @@ namespace PacMan.GameGL
         GameObject currentGameObject;
         GameGrid grid;
         PictureBox pictureBox;
-        const int width = 19;
-        const int height = 19;
+        const int width = 35;
+        const int height = 35;
         public GameCell(int row, int col,GameGrid grid) {
             this.row =row;
             this.col = col;
